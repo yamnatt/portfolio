@@ -10264,6 +10264,298 @@ textarea.form-control {
 
 
 /* =========================================================
+   PROJECT CAROUSEL - FINAL DESIGN
+   ========================================================= */
+
+.project-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 55px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-slide {
+    padding: 10px;
+    height: 100%;
+}
+
+.project-slide .blog-entry {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+
+    height: 100%;
+    min-height: 410px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.3s ease;
+}
+
+.project-slide .blog-entry:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+   16:9 RATIO
+   ========================================================= */
+
+.project-slide .block-20 {
+    display: block;
+
+    width: 100%;
+
+    /* TRUE 16:9 */
+    aspect-ratio: 16 / 9;
+
+    height: auto;
+
+    background-color: #f5f5f5;
+
+    background-repeat: no-repeat;
+
+    /*
+       contain = entire image remains visible
+       No important part gets cropped.
+    */
+    background-size: contain;
+
+    background-position: center;
+
+    flex-shrink: 0;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* Slight image zoom */
+.project-slide .blog-entry:hover .block-20 {
+    transform: scale(1.02);
+}
+
+
+/* =========================================================
+   PROJECT CONTENT
+   ========================================================= */
+
+.project-slide .text {
+    padding: 17px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 8px;
+}
+
+.project-meta span {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 189, 57, 0.08);
+
+    border: 1px solid rgba(255, 189, 57, 0.45);
+
+    color: #666666 !important;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Your old theme was making the title white.
+   This forces it to remain visible.
+*/
+
+.project-slide .heading {
+    margin-top: 4px;
+    margin-bottom: 8px;
+
+    font-size: 19px;
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+.project-slide .heading a,
+.project-slide .heading a:visited {
+    color: #222222 !important;
+
+    text-decoration: none !important;
+
+    transition: color 0.25s ease;
+}
+
+.project-slide .heading a:hover {
+    color: var(--accent) !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.project-slide p {
+    margin-bottom: 12px;
+
+    color: #777777 !important;
+
+    font-size: 12.5px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   VIEW PROJECT
+   ========================================================= */
+
+.project-link,
+.project-link:visited {
+    margin-top: auto;
+
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    color: #222222 !important;
+
+    font-size: 12.5px;
+    font-weight: 600;
+
+    text-decoration: none !important;
+
+    transition: all 0.25s ease;
+}
+
+.project-link span {
+    margin-left: 5px;
+
+    font-size: 15px;
+
+    transition: transform 0.25s ease;
+}
+
+.project-link:hover {
+    color: var(--accent) !important;
+}
+
+.project-link:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LEFT / RIGHT ARROWS
+   ========================================================= */
+
+.project-prev,
+.project-next {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 50;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #242424;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+
+    transition: all 0.25s ease;
+
+    outline: none !important;
+}
+
+
+/* LEFT */
+
+.project-prev {
+    left: 0;
+}
+
+
+/* RIGHT */
+
+.project-next {
+    right: 0;
+}
+
+
+/* Arrow icons */
+
+.project-prev i,
+.project-next i {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+/* Hover */
+
+.project-prev:hover,
+.project-next:hover {
+    background: var(--accent);
+
+    color: #222222;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* =========================================================
    OWL CAROUSEL
    ========================================================= */
 
@@ -10273,6 +10565,7 @@ textarea.form-control {
 
 .project-carousel .owl-item {
     display: flex;
+
     height: auto;
 }
 
@@ -10288,16 +10581,17 @@ textarea.form-control {
 .project-carousel .owl-dots {
     text-align: center;
 
-    margin-top: 28px;
+    margin-top: 18px;
 }
 
 .project-carousel .owl-dot {
     border: none;
+
     background: transparent;
 
-    margin: 0 3px;
-
     outline: none !important;
+
+    margin: 0 3px;
 }
 
 .project-carousel .owl-dot span {
@@ -10310,13 +10604,11 @@ textarea.form-control {
 
     background: #cfcfcf;
 
-    transition:
-        width 0.3s ease,
-        background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .project-carousel .owl-dot.active span {
-    width: 22px;
+    width: 20px;
 
     border-radius: 10px;
 
@@ -10331,36 +10623,7 @@ textarea.form-control {
 @media (max-width: 1199px) {
 
     .project-carousel-wrapper {
-        padding: 0 45px;
-    }
-
-    .project-prev {
-        left: 0;
-    }
-
-    .project-next {
-        right: 0;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL TABLET
-   ========================================================= */
-
-@media (max-width: 991px) {
-
-    .project-carousel-wrapper {
-        padding: 0 42px;
-    }
-
-    .project-slide .blog-entry {
-        min-height: 470px;
-    }
-
-    .project-slide .block-20 {
-        height: 210px;
+        padding: 0 48px;
     }
 
 }
@@ -10377,26 +10640,30 @@ textarea.form-control {
     }
 
     .project-slide {
-        padding: 8px;
+        padding: 7px;
     }
 
     .project-slide .blog-entry {
-        min-height: 460px;
+        min-height: 400px;
     }
 
-    .project-slide .block-20 {
-        height: 220px;
+    .project-slide .text {
+        padding: 15px 17px 18px;
+    }
+
+    .project-slide .heading {
+        font-size: 18px;
     }
 
     .project-prev,
     .project-next {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
     }
 
     .project-prev i,
     .project-next i {
-        font-size: 17px;
+        font-size: 16px;
     }
 
 }
@@ -10414,17 +10681,9 @@ textarea.form-control {
 
     .project-prev,
     .project-next {
-        width: 36px;
-        height: 36px;
-    }
-
-    .project-prev i,
-    .project-next i {
-        font-size: 15px;
-    }
-
-    .project-slide .text {
-        padding: 18px 18px 22px;
+        width: 35px;
+        height: 35px;
     }
 
 }
+
